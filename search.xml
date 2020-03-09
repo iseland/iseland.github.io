@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title>计算机二级重点公式</title>
+      <link href="/2020/03/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E9%87%8D%E7%82%B9%E5%85%AC%E5%BC%8F/"/>
+      <url>/2020/03/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E9%87%8D%E7%82%B9%E5%85%AC%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="计算机二级重点公式简记"><a href="#计算机二级重点公式简记" class="headerlink" title="计算机二级重点公式简记"></a>计算机二级重点公式简记</h2><p>1.通过奇数判断性别 isodd为取出奇数<br><img src="https://t1.picb.cc/uploads/2020/02/16/k7nlvD.png" alt="isodd"><br>2.text公式将数据转化为指定的格式<br><img src="https://t1.picb.cc/uploads/2020/02/16/k7nuUv.png" alt="text"><br>3.datedif隐藏函数用以计算年龄<br><img src="https://t1.picb.cc/uploads/2020/02/16/k7nmML.png" alt="datedif"><br>4.countifs函数多条件统计指定文本数量<br><img src="https://t1.picb.cc/uploads/2020/02/16/k7nGgw.png" alt="countifs"><br>5.averageifs多条件指定统计平均数<br><img src="https://t1.picb.cc/uploads/2020/02/16/k7nHGR.png" alt="averageifs"><br>6.得分率计算<br><img src="https://t1.picb.cc/uploads/2020/02/16/k7n5dg.png" alt="sumifs"><br><img src="https://t1.picb.cc/uploads/2020/02/17/k7l3K7.png" alt="sumifs"><br>7.转置注意事项<br><img src="https://t1.picb.cc/uploads/2020/02/16/k7nAuX.png" alt="转置"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机二级 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机二级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电气控制技术基础及应用基础</title>
+      <link href="/2020/03/09/%E7%94%B5%E6%B0%94%E6%8E%A7%E5%88%B6%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80/"/>
+      <url>/2020/03/09/%E7%94%B5%E6%B0%94%E6%8E%A7%E5%88%B6%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80/</url>
+      
+        <content type="html"><![CDATA[<hr><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>低压电器(简称电器)是用于交流50Hz (或60Hz)额定电压为1200V以下、直流额定电压为1500V以下的电路内起通断、保护、控制或调节作用的电器，如接触器、继电器等。电器可分为配电电器和控制电器两大类，它们是组成成套电气设备的基础配套元件，在电力输配电系统中得到广泛的应用。</p><h2 id="接触器"><a href="#接触器" class="headerlink" title="接触器"></a>接触器</h2><p>接触器是一种自动控制开关设备，主要用于频繁接通或分断交、直流电路及大容量控制电路。根据线圈所加电压的不同，接触器可分为交流接触器与直流接触器两种。<br>接触器主要由电磁系统、触头系统灭弧装置及其他部分组成<br>接触器的额定电压是指主触头的额定电压，应等于负载的额定电压。通常电压等级分为交流接触器380、660V 及1140V;直流接触器220、440、 660V。<br>接触器的额定电流是指主触头的额定电流，通常电流等级分为交流接触器5.10、20、40、60、100、150、 250、 400A和600A,直流接触器为25、40、 60、100、150、 250、400A和600A</p><h2 id="继电器"><a href="#继电器" class="headerlink" title="继电器"></a>继电器</h2><p>继电器是根据一定的信号(如电流、电压、时间和速度等物理量)的变化来接通或分断小电流电路和电器的自动控制电器，主要用于控制与保护电路中，根据它自身的触头通断，达到预定的控制目的或提供一定的保护。<br>电磁式继电器在结构.上是由电磁机构、触头和释放弹簧等组成的<br>若继电器的输出状态发生改变是由发热(温度)所引起的，这种电器称为热继电<br>器。它主要安装在主回路中，用于交流电动机的过载、断相及其他电器设备发热状态<br>的保护。</p><h2 id="速度继电器"><a href="#速度继电器" class="headerlink" title="速度继电器"></a>速度继电器</h2><p>速度继电器是利用速度下降到零附近时，使输出触头发生通和断的一-种控制电器，它主要用于笼型异步电动机的反接制动控制，也称反接制动继电器</p><h2 id="熔断器"><a href="#熔断器" class="headerlink" title="熔断器"></a>熔断器</h2><p>熔断器是一种当流过它的电流超过规定值后，靠它本身产生的热量使熔体熔化而电路的电器。<br>熔断器的熔体串联在被保护的电路中，当电路正常工作时，熔体允许通过一-定大小的<br>电流而不熔断。当电路发生短路或严重过载时，熔体中流过很大的故障电流，该电流产生<br>的热量使熔体温度迅速升高达到熔点，使熔体熔断并切断电路，从而达到保护的目的。熔<br>断器广泛应用于低压配电系统和控制系统及用电设备中作短路和过电流保护用，是目前应<br>用最普遍的保护器件之一。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 电气控制技术基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微信图片压缩脚本简介</title>
       <link href="/2020/02/12/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E8%84%9A%E6%9C%AC%E7%AE%80%E4%BB%8B/"/>
       <url>/2020/02/12/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E8%84%9A%E6%9C%AC%E7%AE%80%E4%BB%8B/</url>
