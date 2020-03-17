@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Linux centos7 升级安装Python2到3</title>
+      <link href="/2020/03/16/centos7%E4%B8%ADpython2%E5%8D%87%E7%B4%9Apython3/"/>
+      <url>/2020/03/16/centos7%E4%B8%ADpython2%E5%8D%87%E7%B4%9Apython3/</url>
+      
+        <content type="html"><![CDATA[<p>运行python -V记住此时旧版本号<br>#1、安装必备软件<br><code>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel gcc</code><br>#2、切换工作目录至/usr/local<br><code>cd /usr/local</code></p><hr><p>#3、下载目标python版本压缩包<br><code>wget http://npm.taobao.org/mirrors/python/3.8.0/Python-3.8.0.tgz</code><br>#4、解压压缩包<br><code>tar -xzf Python-3.8.0.tgz</code></p><hr><p>#5、在当前目录下创建文件夹–python3<br><code>mkdir python3</code><br>#6、编译与安装<br>1.进入解压文件路径<br><code>cd Python-3.8.0</code><br>2.生成makefile文件<br> <code>./configure --prefix=/usr/local/python3</code><br>3.编译安装<br><code>make&amp;&amp;make install</code></p><hr><p>#7、创建新版本的软链接<br>执行这一步的作用是让我们安装的python3可以通过直接输入python来使用。<br>1.修改旧版本<br><code>mv /usr/bin/python /usr/bin/python_bak</code><br>2.创建新的软连接<br><code>ln -s /usr/local/python3/bin/python3 /usr/bin/python</code></p><hr><p>#8、配置pip<br>将/usr/local/python3/bin加入PATH<br>更改~/.bash_profile<br><code>vim ~/.bash_profile</code><br>将其中的ATH=SPATH: SHOME/bin改为PATH=$PATH: SHOME /bin: /usr/local/python3/bin在执行source ~/.bash_profile<br>#9、问题<br>这时候yum是不能用的<br>1.这个时候我们只需要修改/usr/bin/yum文件，将其中#!/usr/bin/python改为#!/usr/bin/python2.7（ 因为我的旧版本是2.7）<br>2.还有就是修改/usr/libexec/urlgrabber-ext-down文件，将python同样指向旧版本，就可以了,即：将#!/usr/bin/python改为#!/usr/bin/python2.7！</p><hr>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> centos7 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机二级重点公式</title>
       <link href="/2020/03/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E9%87%8D%E7%82%B9%E5%85%AC%E5%BC%8F/"/>
       <url>/2020/03/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E9%87%8D%E7%82%B9%E5%85%AC%E5%BC%8F/</url>
