@@ -115,7 +115,7 @@
       <link href="/2020/02/12/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E8%84%9A%E6%9C%AC%E7%AE%80%E4%BB%8B/"/>
       <url>/2020/02/12/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E8%84%9A%E6%9C%AC%E7%AE%80%E4%BB%8B/</url>
       
-        <content type="html"><![CDATA[<h1 id="为什么写这个脚本"><a href="#为什么写这个脚本" class="headerlink" title="为什么写这个脚本"></a>为什么写这个脚本</h1><p>因为在微信编辑平台，微信文章中图片被限制在2M，而我们的图片往往超过这一数值，于是就诞生用python写一个批量图片压缩脚本的想法</p><hr><h1 id="为什么是python"><a href="#为什么是python" class="headerlink" title="为什么是python"></a>为什么是python</h1><p>python语法简单以及众多的第三方库（主要是库多），适合新手使用。</p><hr><h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>用tkinter库提供图形化界面，用强大的pil库处理图片。这两个第三方库需要下载，其他的库则使用python的标准库。<br><img src="http://pan-yz.chaoxing.com/preview/showpreview_555822622406037504.html?v=1610450525000" alt="界面图片"><br>代码我已上传<a href="https://github.com/iseland/Picture-compression-script" target="_blank" rel="noopener">GitHub</a>.</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="为什么写这个脚本"><a href="#为什么写这个脚本" class="headerlink" title="为什么写这个脚本"></a>为什么写这个脚本</h1><p>因为在微信编辑平台，微信文章中图片被限制在2M，而我们的图片往往超过这一数值，于是就诞生用python写一个批量图片压缩脚本的想法</p><hr><h1 id="为什么是python"><a href="#为什么是python" class="headerlink" title="为什么是python"></a>为什么是python</h1><p>python语法简单以及众多的第三方库（主要是库多），适合新手使用。</p><hr><h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>用tkinter库提供图形化界面，用强大的pil库处理图片。这两个第三方库需要下载，其他的库则使用python的标准库。</p><p><img src="http://pan-yz.chaoxing.com/preview/showpreview_555822622406037504.html?v=1610450525000" alt="界面图片"></p><p>代码我已上传<a href="https://github.com/iseland/Picture-compression-script" target="_blank" rel="noopener">GitHub</a>.</p>]]></content>
       
       
       <categories>
